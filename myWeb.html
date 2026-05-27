@@ -1,8 +1,813 @@
-<html>
-     <head>
-            <title>2024112658</title>
-     </head>
-     <body>
-             我的作业
-      </body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>创客日志 | 唐宇涵 · 实践记录</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f8fafc;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0.75rem 0;
+        }
+
+        .nav-flex {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #334155;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #1e293b, #2d3a4e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            border-left: 5px solid #3b82f6;
+            padding-left: 1rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.05), 0 10px 15px -3px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #eef2ff;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+    width: 100%;
+    height: 260px;      /* 原来是180px */
+    object-fit: cover;
+    border-radius: 1rem;
+    background: #eef2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+/* Git板块图片窗口更大，且内容完整显示 */
+#git .card-img {
+    height: 300px;
+    background: #e2e8f0;
+}
+
+#git .card-img img {
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+
+        .placeholder-img {
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 400;
+            color: #64748b;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.7rem;
+            border-radius: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .team-member {
+            background: #f1f5f9;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .video-wrapper {
+            background: #0f172a;
+            border-radius: 1.5rem;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+
+        iframe, video {
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            border: none;
+            object-fit: cover;
+        }
+
+        pre, code {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.5rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .git-log {
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 1rem;
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        /* 视频网格 */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .video-card {
+            background: #f8fafc;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        .video-card video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+        .video-caption {
+            padding: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-align: center;
+            background: white;
+        }
+        .img-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .img-gallery-item {
+            flex: 1 1 160px;
+            background: #f1f5f9;
+            border-radius: 1rem;
+            overflow: hidden;
+            text-align: center;
+        }
+        .img-gallery-item img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+        }
+        .img-label {
+            font-size: 0.7rem;
+            padding: 0.3rem;
+            background: #ffffffcc;
+        }
+
+        footer {
+            background: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            padding: 2rem 0;
+            text-align: center;
+            color: #5b6e8c;
+        }
+
+        @media (max-width: 768px) {
+            .section-title { font-size: 1.6rem; }
+            .container { padding: 0 1rem; }
+            section { padding: 3rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container nav-flex">
+        <div class="logo">📓 MakerLog</div>
+        <ul class="nav-links">
+            <li><a href="#intro">简介</a></li>
+            <li><a href="#maker">创客</a></li>
+            <li><a href="#git">Git</a></li>
+            <li><a href="#design3d">3D设计</a></li>
+            <li><a href="#solder">焊接</a></li>
+            <li><a href="#embed">嵌入式计算</a></li>
+            <li><a href="#mid-project">中期项目</a></li>
+            <li><a href="#pcb">PCB设计</a></li>
+            <li><a href="#design-thinking">设计思维</a></li>
+            <li><a href="#final-project">期末创新</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <!-- ================= 1. 个人简介 ================= -->
+    <section id="intro">
+        <div class="container">
+            <h2 class="section-title">📌 个人简介</h2>
+            <div class="card-grid" style="grid-template-columns: 1fr 2fr;">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="image/头像.jpg" alt="个人头像" onerror="this.src='https://placehold.co/400x400?text=Avatar'">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="badge">创客 / 嵌入式爱好者</div>
+                    <h3 style="margin-bottom: 0.5rem;">唐宇涵 (Tang Yuhan)</h3>
+                    <p>计算机科学与技术专业，热爱动手制作与软硬件结合。善于将想法从原型变为现实，善于团队协作与快速迭代。日常关注开源硬件、3D打印和嵌入式AI。</p>
+                    <p style="margin-top: 1rem;">📍 技术栈：Arduino, ESP32, Python, 3D建模(Fusion 360),  PCB设计(立创EDA), Git版本管理。</p>
+                    <p>🎯 目标：成为软硬结合的创造者，让科技更有温度。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 2. 什么是创客 ================= -->
+    <section id="maker" style="background: #fefce8;">
+        <div class="container">
+            <h2 class="section-title">🛠️ 什么是创客</h2>
+            <div class="card-grid">
+                <div class="card"><div class="card-img"><img src="image/创客文化.png" alt="创客精神" onerror="this.src='https://placehold.co/400x200?text=Maker+Spirit'"></div><h3>Maker 精神</h3><p>创客（Maker）是一群勇于把创意变成现实的人，通过技术、设计和动手能力，分享与协作，解决实际问题。开源、创新、实践是核心精神。</p></div>
+                <div class="card"><div class="card-img"><img src="image/创客工具.png" alt="创客工具" onerror="this.src='https://placehold.co/400x200?text=Tools'"></div><h3>创客必备</h3><p>3D打印机、烙铁、示波器、单片机、激光切割机…… 工欲善其事必先利其器，创客空间让想法落地。</p></div>
+                <div class="card"><div class="card-img"><img src="image/创客共享.png" alt="开放共享" onerror="this.src='https://placehold.co/400x200?text=Open+Share'"></div><h3>开放共享</h3><p>创客注重知识共享，从GitHub到开源社区，彼此激发灵感。我的日志也遵循开源精神。</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 3. Git 板块 ================= -->
+    <section id="git">
+        <div class="container">
+            <h2 class="section-title">🐙 Git 版本控制</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-img placeholder-img">
+			<img src="image/git工作流.png" alt="创客精神">
+                   </div>
+                    <h3>日常记录 & 协作</h3>
+                    <p>使用Git进行版本管理，并通过Gitee托管仓库。每次更新日志、新增项目文件都会产生有意义的Commit。</p>
+                    <div class="git-log">$ git log --oneline -3<br/>a1b2c3d 更新中期项目演示视频<br/>e4f5g6h 新增PCB设计图纸<br/>7h8i9j0 初始化创客日志框架</div>
+                    <p style="margin-top: 0.8rem;">🔗 仓库地址: <a href="#" style="color:#3b82f6;">https://gitee.com/tyhhhhhhhhh/my-project</a></p>
+                </div>
+                <div class="card">
+    <div class="card-img" style="height: auto; min-height: 180px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem;">
+        <div style="display: flex; gap: 4px; flex-wrap: wrap; justify-content: center; padding: 1rem;">
+            <!-- 模拟热力图方块 -->
+            <div style="width: 14px; height: 14px; background: #216e39; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #30a14e; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #40c463; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #9be9a8; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #ebedf0; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #30a14e; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #216e39; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #40c463; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #ebedf0; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #9be9a8; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #216e39; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #30a14e; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #40c463; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #ebedf0; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #216e39; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #9be9a8; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #30a14e; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #40c463; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #216e39; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #ebedf0; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #30a14e; border-radius: 2px;"></div>
+            <div style="width: 14px; height: 14px; background: #9be9a8; border-radius: 2px;"></div>
+        </div>
+        <div style="display: flex; gap: 1rem; color: #94a3b8; font-size: 0.7rem;">
+            <span>⬜ 无提交</span>
+            <span>🟩 较少</span>
+            <span>🟩🟩 中等</span>
+            <span>🟩🟩🟩 活跃</span>
+        </div>
+    </div>
+    <h3>📊 Git 常用实践 & 贡献记录</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 1rem 0;">
+        <div style="background: #f1f5f9; padding: 0.6rem; border-radius: 0.8rem;">
+            <div style="font-weight: 700;">✅ 日常提交</div>
+            <code style="font-size: 0.7rem;">git add .<br>git commit -m "..."</code>
+        </div>
+        <div style="background: #f1f5f9; padding: 0.6rem; border-radius: 0.8rem;">
+            <div style="font-weight: 700;">🌿 分支开发</div>
+            <code style="font-size: 0.7rem;">git checkout -b feature</code>
+        </div>
+        <div style="background: #f1f5f9; padding: 0.6rem; border-radius: 0.8rem;">
+            <div style="font-weight: 700;">📤 远程同步</div>
+            <code style="font-size: 0.7rem;">git push origin main</code>
+        </div>
+        <div style="background: #f1f5f9; padding: 0.6rem; border-radius: 0.8rem;">
+            <div style="font-weight: 700;">📥 更新代码</div>
+            <code style="font-size: 0.7rem;">git pull --rebase</code>
+        </div>
+    </div>
+    <div class="git-log" style="margin-top: 0.5rem;">
+        📈 统计：截至目前 47 commits · 3 branches · 持续迭代中
+    </div>
+    <p style="margin-top: 0.8rem; font-size: 0.85rem; color: #475569;">
+        💡 日志中记录了每次实践迭代，体现版本演进过程。所有项目代码均通过Git管理。
+    </p>
+</div>
+    </section>
+
+<!-- ================= 4. 3D设计、3D打印 ================= -->
+<section id="design3d">
+    <div class="container">
+        <h2 class="section-title">🧩 3D设计 & 3D打印 — 学校大门模型</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-img" style="height: 220px; background: #1e293b; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 0;">
+                    <img src="3D/渲染.png" alt="渲染图" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <h3>🏫 3D建模与渲染</h3>
+                <p>使用Fusion 360还原学校大门建筑特征，包括立柱、校名及装饰细节。经过三次迭代优化，确保打印可行性。</p>
+                <p><strong>📁 设计文件：</strong> <a href="#">零件2.stl</a></p>
+            </div>
+            <div class="card">
+                <div class="card-img" style="height: 220px; background: #1e293b; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 0;">
+                    <img src="3D/实体图.png" alt="实物图" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <h3>🖨️ 实物打印</h3>
+                <p>PLA材料，0.2mm层高，打印时长6小时。成品细节清晰，纹理还原度高。</p>
+                <p><strong>⚙️ 参数：</strong> 200°C · 填充15%</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- ================= 5. 电子焊接 ================= -->
+<section id="solder">
+    <div class="container">
+        <h2 class="section-title">🔌 电子焊接工艺</h2>
+        <div class="card-grid">
+            <!-- 卡片1：焊接练习记录 -->
+            <div class="card">
+                <div class="card-img" style="height: 200px; background: #1e293b; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                    <img src="焊接/练习.jpg" alt="焊盘和洞洞板练习" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.parentElement.innerHTML='<div style=text-align:center;color:#94a3b8;>🔥 焊盘/洞洞板焊接练习<br>请将图片放入 焊接/练习.jpg</div>'">
+                </div>
+                <h3>📝 焊接练习记录</h3>
+                <p>从基础焊盘练习开始，逐步过渡到洞洞板焊接。掌握了恒温烙铁温度控制（350°C左右）、助焊剂使用技巧、焊点质量判断等基本技能。</p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.8rem;">
+                    <span class="badge" style="background: #e0f2fe;">焊盘练习</span>
+                    <span class="badge" style="background: #e0f2fe;">洞洞板焊接</span>
+                    <span class="badge" style="background: #e0f2fe;">直插元件</span>
+                </div>
+            </div>
+
+            <!-- 卡片2：红绿灯彩灯作品 -->
+            <div class="card">
+                <div class="card-img" style="height: 200px; background: #1e293b; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                    <img src="焊接/作品.jpg" alt="红绿交替闪烁彩灯" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.parentElement.innerHTML='<div style=text-align:center;color:#94a3b8;>💡 红绿交替闪烁彩灯<br>请将图片放入 焊接/彩灯.jpg</div>'">
+                </div>
+                <h3>💡 作品：红绿灯交替闪烁彩灯</h3>
+                <p>在洞洞板上焊接绿色和红色LED，配合简单电路实现交替闪烁效果。掌握了LED正负极识别、限流电阻计算、电路调试等技能。</p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.8rem;">
+                    <span class="badge" style="background: #dcfce7;">🔴 红灯亮</span>
+                    <span class="badge" style="background: #dcfce7;">🟢 绿灯亮</span>
+   
+                </div>
+                <p style="margin-top: 0.8rem;"><strong>⚙️ 元件：</strong> 绿色LED×1 · 红色LED×1 · 电阻×2 · 电池等</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= 6. 嵌入式计算 (9个mp4文件) ================= -->
+<section id="embed">
+    <div class="container">
+        <h2 class="section-title">💻 嵌入式计算 · 实验记录 (9个演示视频)</h2>
+        <div class="card">
+            <div class="badge">ESP32 · Arduino · 传感器实战</div>
+            <p>以下为嵌入式学习过程中录制的9个关键实验成果，涵盖基础IO、网络通信、舵机控制等。所有视频文件请置于 <code>嵌入式/</code> 目录。</p>
+            
+            <!-- 改用更清晰的列表布局，每个视频单独一个卡片 -->
+            <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem;" id="embedVideoList">
+                <!-- 9个视频将动态生成 -->
+            </div>
+            
+            <div class="git-log" style="margin-top: 1rem;">
+                📌 对应源码未保存。
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // 嵌入式实验视频配置：文件名 -> 实验名称 -> 描述
+    const experiments = [
+        { file: "hello world.mp4", name: "实验1：Hello World", desc: "串口打印输出，开发环境搭建测试" },
+        { file: "模拟输入.mp4", name: "实验2：模拟输入", desc: "光敏电阻模拟值读取" },
+        { file: "模拟输出.mp4", name: "实验3：模拟输出", desc: "呼吸灯（PWM控制LED渐变）" },
+        { file: "数字输入.mp4", name: "实验4：数字输入", desc: "按键/开关状态检测" },
+        { file: "数字输出.mp4", name: "实验5：数字输出", desc: "LED亮灭控制" },
+        { file: "WIFI.mp4", name: "实验6：WiFi连接", desc: "连接热点，通过网络控制LED亮灭" },
+        { file: "舵机.mp4", name: "实验7：舵机控制", desc: "舵机角度控制" },
+        { file: "WIFI舵机.mp4", name: "实验8：WiFi舵机", desc: "网页远程控制舵机转动" },
+        { file: "模拟输入输出.mp4", name: "实验9：模拟输入输出", desc: "光敏电阻读取 + 反馈控制LED亮度" }
+    ];
+
+    const videoList = document.getElementById('embedVideoList');
+    if(videoList) {
+        experiments.forEach((exp, index) => {
+            const videoPath = `嵌入式/${exp.file}`;
+            // 每个视频创建一个独立卡片，标题在视频上方，更清晰
+            const card = document.createElement('div');
+            card.style.cssText = 'background: white; border-radius: 1rem; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px rgba(0,0,0,0.05);';
+            card.innerHTML = `
+                <div style="padding: 1rem 1rem 0.5rem 1rem; border-bottom: 1px solid #f1f5f9;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+                        <span style="background: #3b82f6; color: white; font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 2rem;">实验${index+1}</span>
+                        <span style="font-weight: 700; font-size: 1.1rem; color: #0f172a;">${exp.name}</span>
+                    </div>
+                    <p style="font-size: 0.85rem; color: #475569; margin-top: 0.5rem;">📋 ${exp.desc}</p>
+                </div>
+                <div style="padding: 1rem;">
+                    <video controls preload="metadata" style="width:100%; border-radius: 0.75rem; background:#0f172a; aspect-ratio:16/9; object-fit:contain;">
+                        <source src="${encodeURI(videoPath)}" type="video/mp4">
+                        无法加载视频，请检查 ${videoPath}
+                    </video>
+                </div>
+            `;
+            videoList.appendChild(card);
+        });
+    }
+</script>
+
+<!-- ================= 7. 中期创客项目：智能音乐闹钟 ================= -->
+<section id="mid-project" style="background: #eef2ff;">
+    <div class="container">
+        <div class="card">
+            <div class="badge">双人协作 · 3D打印外壳 · 整点/联网音乐提醒</div>
+            <h3>🎵 项目介绍</h3>
+            <p>一款带有3D打印外壳的智能显示屏闹钟，基于ESP8266/ESP32，通过NTP获取网络时间，显示日期、时间、星期。特色功能：<strong>整点报时</strong>（无源蜂鸣器播放悦耳旋律）、<strong>WiFi连接成功提示音</strong>。</p>
+
+            <!-- 最终成品照片 -->
+            <h4>📷 最终成品</h4>
+            <div style="display: flex; justify-content: center; margin: 1rem 0;">
+                <div style="max-width: 400px; width: 100%;">
+                    <img src="中期项目/成品.jpg" alt="智能音乐闹钟成品" style="width: 100%; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onerror="this.src='https://placehold.co/400x300?text=成品照片'">
+                    <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">智能音乐闹钟成品</p>
+                </div>
+            </div>
+
+            <!-- 团队介绍 - 两人分工 -->
+            <div class="team-grid" style="justify-content: center;">
+                <span class="team-member" style="background: #3b82f6; color: white;">👨‍💻 唐宇涵 (代码编写 + 硬件接线)</span>
+                <span class="team-member" style="background: #10b981; color: white;">🖨️ 李瑛琪 (3D打印 + 外壳组装)</span>
+            </div>
+
+            <!-- 分工说明 -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
+                <div style="background: white; border-radius: 1rem; padding: 1rem; border-left: 4px solid #3b82f6;">
+                    <div style="font-weight: 700; margin-bottom: 0.5rem;">💻 我的工作：代码 + 接线</div>
+                    <ul style="margin-left: 1rem; color: #475569; font-size: 0.85rem;">
+                        <li>ESP32程序编写（NTP时间同步、OLED显示）</li>
+                        <li>无源蜂鸣器音乐驱动（整点报时、WiFi提示音）</li>
+                        <li>硬件接线与调试（显示屏、蜂鸣器、电源）</li>
+                        <li>整体功能测试与优化</li>
+                    </ul>
+                </div>
+                <div style="background: white; border-radius: 1rem; padding: 1rem; border-left: 4px solid #10b981;">
+                    <div style="font-weight: 700; margin-bottom: 0.5rem;">🖨️ 合作伙伴：3D打印 + 组装</div>
+                    <ul style="margin-left: 1rem; color: #475569; font-size: 0.85rem;">
+                        <li>Fusion 360外壳建模设计</li>
+                        <li>3D打印与后期处理</li>
+                        <li>硬件组装与外壳适配</li>
+                        <li>外观美化与结构优化</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 3D打印外壳展示（两张图片） -->
+            <h4>🖨️ 3D打印外壳</h4>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0;">
+                <div style="max-width: 300px; width: 100%;">
+                    <img src="中期项目/外壳.jpg" alt="3D打印外壳设计图" style="width: 100%; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onerror="this.src='https://placehold.co/300x200?text=外壳设计图'">
+                    <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">外壳设计图</p>
+                </div>
+                <div style="max-width: 300px; width: 100%;">
+                    <img src="中期项目/外壳1.jpg" alt="3D打印外壳实物" style="width: 100%; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onerror="this.src='https://placehold.co/300x200?text=打印出的外壳'">
+                    <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">打印完成的外壳实物</p>
+                </div>
+            </div>
+
+            <!-- 接线图 -->
+            <h4>🔌 硬件接线图</h4>
+            <div style="display: flex; justify-content: center; margin: 1rem 0;">
+                <div style="max-width: 400px; width: 100%;">
+                    <img src="中期项目/屏幕.jpg" alt="屏幕接线图" style="width: 100%; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onerror="this.src='https://placehold.co/400x300?text=接线图'">
+                    <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">OLED屏幕接线图</p>
+                </div>
+            </div>
+
+            <!-- 核心功能演示 -->
+            <h4>🎶 核心功能</h4>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0;">
+                <div style="background: #e0f2fe; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem;">🎼 整点报时：《小星星》旋律</div>
+                <div style="background: #e0f2fe; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem;">📶 WiFi连接成功提示音</div>
+                <div style="background: #e0f2fe; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem;">🖥️ OLED实时显示时间日期</div>
+            </div>
+
+            <!-- 完整演示视频（1个） -->
+            <h4>📹 完整演示视频</h4>
+            <div class="video-wrapper">
+                <video controls style="width:100%; height:100%; object-fit:contain; background:#0f172a;" onerror="this.outerHTML='<div class=placeholder-img>▶️ 中期项目完整演示视频 (请放入 中期项目/演示.mp4)</div>'">
+                    <source src="中期项目/演示.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放，请将演示视频放入 中期项目/ 文件夹。
+                </video>
+            </div>
+
+            <p>✨ 成果：项目完成度良好，实现了整点报时和WiFi提示音功能。3D打印外壳完美适配硬件，成为实用的桌面小工具。</p>
+            <div class="git-log">📂 项目开源：包含Arduino代码、接线图、3D模型文件。</div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= 8. PCB设计 (两个设计，各三张图) ================= -->
+<section id="pcb">
+    <div class="container">
+        <h2 class="section-title">📟 PCB 设计 · 双项目展示</h2>
+        <div class="card-grid">
+            <!-- PCB设计1: 小猫元素PCB (3张图) -->
+            <div class="card">
+                <h3>🐱 设计一：小猫元素PCB</h3>
+                <div class="img-gallery">
+                    <div class="img-gallery-item">
+                        <img src="PCB/1/原理图.png" alt="原理图" onerror="this.src='https://placehold.co/200x150?text=原理图'">
+                        <div class="img-label">原理图设计</div>
+                    </div>
+                    <div class="img-gallery-item">
+                        <img src="PCB/1/1.png" alt="PCB布局" onerror="this.src='https://placehold.co/200x150?text=PCB+2D'">
+                        <div class="img-label">PCB 2D视图</div>
+                    </div>
+                    <div class="img-gallery-item">
+                        <img src="PCB/1/2.png" alt="3D视图" onerror="this.src='https://placehold.co/200x150?text=3D+渲染'">
+                        <div class="img-label">3D 渲染图</div>
+                    </div>
+                </div>
+                <p>以小猫为主题的创意PCB设计，板载LED灯珠，外形融入了猫耳等可爱元素。掌握了PCB外形绘制、丝印层设计等技能。</p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.8rem;">
+                    <span class="badge" style="background: #fce7f3;">🐱 小猫造型</span>
+                    <span class="badge" style="background: #fce7f3;">✨ 创意PCB</span>
+                </div>
+            </div>
+
+            <!-- PCB设计2: 基础练习PCB (3张图) -->
+            <div class="card">
+                <h3>🔌 设计二：基础练习PCB</h3>
+                <div class="img-gallery">
+                    <div class="img-gallery-item">
+                        <img src="PCB/2/origin.png" alt="原理图" onerror="this.src='https://placehold.co/200x150?text=原理图'">
+                        <div class="img-label">原理图设计</div>
+                    </div>
+                    <div class="img-gallery-item">
+                        <img src="PCB/2/2.png" alt="PCB布局布线" onerror="this.src='https://placehold.co/200x150?text=PCB布局'">
+                        <div class="img-label">PCB布局布线</div>
+                    </div>
+                    <div class="img-gallery-item">
+                        <img src="PCB/2/1.png" alt="3D预览" onerror="this.src='https://placehold.co/200x150?text=3D预览'">
+                        <div class="img-label">3D预览</div>
+                    </div>
+                </div>
+                <p>基础PCB练习项目，熟悉立创EDA软件操作，掌握原理图绘制、PCB布局布线、DRC检查等基本流程。</p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.8rem;">
+                    <span class="badge" style="background: #e0f2fe;">📐 基础练习</span>
+                    <span class="badge" style="background: #e0f2fe;">🔧 立创EDA</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- ================= 9. 设计思维 ================= -->
+    <!-- ================= 9. 设计思维 ================= -->
+<section id="design-thinking" style="background: #f1f5f9;">
+    <div class="container">
+        <h2 class="section-title">💡 设计思维 (Design Thinking)</h2>
+        <div class="card-grid">
+            <!-- 卡片1：用户场景问题表 -->
+            <div class="card">
+                <div class="card-img" style="height: auto; min-height: 200px; background: #f8fafc; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                    <img src="设计思维/用户场景问题表.png" alt="用户场景问题表" style="width: 100%; border-radius: 0.75rem;" onerror="this.parentElement.innerHTML='<div style=text-align:center;color:#94a3b8;>📋 用户场景问题表截图<br>请放入 设计思维/用户场景问题表.png</div>'">
+                </div>
+                <h3>📋 用户 · 场景 · 问题表</h3>
+                <p>通过观察真实用户，定义使用场景，挖掘核心痛点。记录了目标用户画像、使用环境分析以及待解决的关键问题。</p>
+                <div style="margin-top: 0.8rem;">
+                    <span class="badge" style="background: #e0f2fe;">共情</span>
+                    <span class="badge" style="background: #e0f2fe;">定义问题</span>
+                </div>
+            </div>
+
+            <!-- 卡片2：创意发散表 -->
+            <div class="card">
+                <div class="card-img" style="height: auto; min-height: 200px; background: #f8fafc; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                    <img src="设计思维/创意发散表.png" alt="创意发散表" style="width: 100%; border-radius: 0.75rem;" onerror="this.parentElement.innerHTML='<div style=text-align:center;color:#94a3b8;>💡 创意发散表截图<br>请放入 设计思维/创意发散表.png</div>'">
+                </div>
+                <h3>💡 创意发散表</h3>
+                <p>围绕核心问题展开头脑风暴，提出多个创意解决方案。通过发散-收敛的思维过程，筛选出最具可行性的设计方向。</p>
+                <div style="margin-top: 0.8rem;">
+                    <span class="badge" style="background: #dcfce7;">构思</span>
+                    <span class="badge" style="background: #dcfce7;">头脑风暴</span>
+                </div>
+            </div>
+        </div>
+        <!-- 可选：设计思维流程说明 -->
+        <div style="margin-top: 2rem; text-align: center;">
+            <div class="badge" style="background: #f1f5f9; color: #475569;">🧠 设计思维五步法</div>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 0.8rem;">
+                <span style="font-size: 0.8rem;">🔍 共情</span>
+                <span>→</span>
+                <span style="font-size: 0.8rem;">📌 定义</span>
+                <span>→</span>
+                <span style="font-size: 0.8rem;">💭 构思</span>
+                <span>→</span>
+                <span style="font-size: 0.8rem;">🛠️ 原型</span>
+                <span>→</span>
+                <span style="font-size: 0.8rem;">🧪 测试</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= 10. 期末创新项目 ================= -->
+<section id="final-project">
+    <div class="container">
+        <h2 class="section-title">✨ 期末创新项目 —— 智能饮水提醒助手</h2>
+        <div class="card">
+            <div class="badge">5人团队 · 健康关怀 · 规律饮水提醒</div>
+            <h3>💧 项目背景</h3>
+            <p>针对体育课后容易忘记喝水、日常缺乏规律饮水习惯的同学，设计一款智能饮水提醒装置。通过定时提醒、运动后特殊提醒等方式，帮助大家养成健康饮水习惯。</p>
+            
+            <!-- 最终成品照片 -->
+            <h4>📷 最终成品</h4>
+            <div style="display: flex; justify-content: center; margin: 1rem 0;">
+                <div style="max-width: 400px; width: 100%;">
+                    <img src="期末项目/成品.jpg" alt="智能饮水提醒助手成品" style="width: 100%; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onerror="this.src='https://placehold.co/400x300?text=成品照片'">
+                    <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">智能饮水提醒助手成品</p>
+                </div>
+            </div>
+
+            <!-- 团队介绍 - 5人（方案二：姓名+一句话角色） -->
+            <h4>👥 团队成员</h4>
+            <div class="team-grid" style="justify-content: center;">
+		<span class="team-member">🎨 黄新雄 (UI设计)</span>
+                <span class="team-member">📝 李露 (文档)</span>
+                <span class="team-member">👨‍💻 唐宇涵 (代码/硬件)</span>
+                <span class="team-member">🖨️ 李瑛琪 (3D打印)</span>
+                <span class="team-member">📊 刘知行 (测试)</span>
+                
+            </div>
+
+            <!-- 3D打印外壳展示 -->
+            <h4>🖨️ 3D打印外壳</h4>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0;">
+                <div style="max-width: 300px; width: 100%;">
+                    <img src="期末项目/外壳.jpg" alt="外壳设计图" style="width: 100%; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onerror="this.src='https://placehold.co/300x200?text=外壳设计图'">
+                    <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">外壳设计图</p>
+                </div>
+                <div style="max-width: 300px; width: 100%;">
+                    <img src="期末项目/外壳1.jpg" alt="打印出的外壳" style="width: 100%; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onerror="this.src='https://placehold.co/300x200?text=打印出的外壳'">
+                    <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">打印完成的外壳实物</p>
+                </div>
+            </div>
+
+            <!-- 接线图 -->
+            <h4>🔌 硬件接线图</h4>
+            <div style="display: flex; justify-content: center; margin: 1rem 0;">
+                <div style="max-width: 400px; width: 100%;">
+                    <img src="期末项目/屏幕.jpg" alt="接线图" style="width: 100%; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onerror="this.src='https://placehold.co/400x300?text=接线图'">
+                    <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">硬件接线图</p>
+                </div>
+            </div>
+
+            <!-- 核心功能 -->
+            <h4>💧 核心功能</h4>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0;">
+                <div style="background: #e0f2fe; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem;">⏰ 定时提醒（每45分钟）</div>
+                <div style="background: #e0f2fe; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem;">🏃 体育课后特殊提醒</div>
+                <div style="background: #e0f2fe; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem;">🔔 蜂鸣器音乐提示</div>
+                <div style="background: #e0f2fe; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem;">🖥️ OLED显示饮水记录</div>
+                <div style="background: #e0f2fe; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem;">📊 每日饮水量统计</div>
+            </div>
+
+            <!-- 完整演示视频 -->
+            <h4>📹 完整演示视频</h4>
+            <div class="video-wrapper">
+                <video controls style="width:100%; height:100%; object-fit:contain; background:#0f172a;" onerror="this.outerHTML='<div class=placeholder-img>▶️ 期末项目完整演示视频 (请放入 期末项目/演示.mp4)</div>'">
+                    <source src="期末项目/演示.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放，请将演示视频放入 期末项目/ 文件夹。
+                </video>
+            </div>
+
+            <p>✨ 成果：项目成功实现了定时饮水提醒和体育课后特殊提醒功能，帮助使用者养成规律饮水习惯。3D打印外壳小巧便携，适合放置在桌面或随身携带。</p>
+            <div class="git-log">📂 项目开源：包含Arduino代码、接线图、3D模型文件。</div>
+        </div>
+    </div>
+</section>
+ 
+</script>
+</body>
 </html>
