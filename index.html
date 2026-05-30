@@ -540,6 +540,7 @@
 <!-- ================= 7. 中期创客项目：智能音乐闹钟 ================= -->
 <section id="mid-project" style="background: #eef2ff;">
     <div class="container">
+          <h2 class="section-title">✨ 期中创新项目 —— 智能音乐时钟</h2>
         <div class="card">
             <div class="badge">双人协作 · 3D打印外壳 · 整点/联网音乐提醒</div>
             <h3>🎵 项目介绍</h3>
@@ -736,29 +737,198 @@
 <section id="final-project">
     <div class="container">
         <h2 class="section-title">✨ 期末创新项目 —— 智能饮水提醒助手</h2>
+        
+        <!-- ========== 1. Project Profile ========== -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <h3>📋 Project Profile</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <div>
+                    <div style="font-weight: 700; color: #3b82f6;">项目名称</div>
+                    <p>智能饮水提醒助手</p>
+                </div>
+                <div>
+                    <div style="font-weight: 700; color: #3b82f6;">一句话产品定义</div>
+                    <p>针对体育课后忘记喝水、日常缺乏规律饮水习惯的同学，通过定时提醒和运动后特殊提醒，帮助养成健康饮水习惯的智能装置。</p>
+                </div>
+            </div>
+            <div style="margin-top: 1rem;">
+                <div style="font-weight: 700; color: #3b82f6;">团队成员及分工</div>
+                <div class="team-grid" style="justify-content: flex-start; margin-top: 0.5rem;">
+                    <span class="team-member">🎨 黄新雄 (UI设计)</span>
+                    <span class="team-member">📝 李露 (文档)</span>
+                    <span class="team-member">👨‍💻 唐宇涵 (代码/硬件)</span>
+                    <span class="team-member">🖨️ 李瑛琪 (3D打印)</span>
+                    <span class="team-member">📊 刘知行 (测试)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== 2. Design Log（时间轴） ========== -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <h3>📅 Design Log · 设计迭代记录</h3>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+                
+                <!-- 周六上午 -->
+                <div style="border-left: 4px solid #3b82f6; padding-left: 1rem;">
+                    <div style="display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;">
+                        <span style="background: #3b82f6; color: white; padding: 0.2rem 0.8rem; border-radius: 2rem; font-size: 0.75rem;">周六上午</span>
+                        <span style="font-weight: 700;">需求分析与初步设计</span>
+                    </div>
+                    <p style="margin-top: 0.5rem;">讨论目标用户痛点，确定核心功能：定时提醒 + 体育课后特殊提醒。初步选定 ESP32 + OLED + 蜂鸣器方案。</p>
+                    <div style="background: #fef3c7; padding: 0.75rem; border-radius: 0.75rem; margin-top: 0.5rem;">
+                        <span style="font-weight: 600;">📸 失败/迭代记录：</span>
+                        <span style="font-size: 0.85rem;">最初的提醒方式只有蜂鸣器，测试后发现容易忽略，后续增加了 OLED 显示提醒。</span>
+                    </div>
+                    <img src="期末项目/草图1.jpg" alt="周六上午设计草图" style="max-width: 200px; margin-top: 0.5rem; border-radius: 0.5rem;" onerror="this.style.display='none'">
+                </div>
+
+                <!-- 周六下午 -->
+                <div style="border-left: 4px solid #f59e0b; padding-left: 1rem;">
+                    <div style="display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;">
+                        <span style="background: #f59e0b; color: white; padding: 0.2rem 0.8rem; border-radius: 2rem; font-size: 0.75rem;">周六下午</span>
+                        <span style="font-weight: 700;">硬件搭建与代码调试</span>
+                    </div>
+                    <p style="margin-top: 0.5rem;">完成 ESP32 与 OLED、蜂鸣器的接线。编写定时器代码，实现每 45 分钟触发提醒。</p>
+                    <div style="background: #fef3c7; padding: 0.75rem; border-radius: 0.75rem; margin-top: 0.5rem;">
+                        <span style="font-weight: 600;">📸 失败/迭代记录：</span>
+                        <span style="font-size: 0.85rem;">第一次接线时 OLED 不亮，排查发现是 I2C 地址错误（0x3C vs 0x3D），修改后正常。</span>
+                    </div>
+                    <img src="期末项目/调试照片.jpg" alt="周六下午调试过程" style="max-width: 200px; margin-top: 0.5rem; border-radius: 0.5rem;" onerror="this.style.display='none'">
+                </div>
+
+                <!-- 周日早晨 -->
+                <div style="border-left: 4px solid #10b981; padding-left: 1rem;">
+                    <div style="display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;">
+                        <span style="background: #10b981; color: white; padding: 0.2rem 0.8rem; border-radius: 2rem; font-size: 0.75rem;">周日早晨</span>
+                        <span style="font-weight: 700;">功能完善与外壳适配</span>
+                    </div>
+                    <p style="margin-top: 0.5rem;">完成体育课后特殊提醒逻辑，与 3D 打印外壳进行适配组装，整机测试。</p>
+                    <div style="background: #fef3c7; padding: 0.75rem; border-radius: 0.75rem; margin-top: 0.5rem;">
+                        <span style="font-weight: 600;">📸 失败/迭代记录：</span>
+                        <span style="font-size: 0.85rem;">外壳尺寸与电路板不匹配，需微调螺丝孔位；蜂鸣器音量偏小，最终通过增加 PWM 占空比优化。</span>
+                    </div>
+                    <img src="期末项目/外壳适配.jpg" alt="周日外壳适配" style="max-width: 200px; margin-top: 0.5rem; border-radius: 0.5rem;" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== 3. Tech Stack & Code ========== -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <h3>🔧 Tech Stack & Code</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+                <div>
+                    <div style="font-weight: 700; color: #3b82f6;">硬件清单</div>
+                    <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+                        <li>ESP32 开发板 ×1</li>
+                        <li>0.96英寸 OLED 显示屏 ×1</li>
+                        <li>无源蜂鸣器 ×1</li>
+                        <li>杜邦线若干</li>
+                        <li>3D打印外壳 ×1</li>
+                        <li>USB 电源线 ×1</li>
+                    </ul>
+                </div>
+                <div>
+                    <div style="font-weight: 700; color: #3b82f6;">软件与工具</div>
+                    <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+                        <li>Arduino IDE</li>
+                        <li>ESP32 开发库</li>
+                        <li>U8g2 (OLED 驱动库)</li>
+                        <li>Fusion 360 (外壳设计)</li>
+                        <li>立创EDA (PCB设计)</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top: 1rem;">
+                <div style="font-weight: 700; color: #3b82f6;">核心代码片段</div>
+                <pre style="background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 0.75rem; overflow-x: auto; font-size: 0.75rem; margin-top: 0.5rem;">
+// 定时提醒核心逻辑（每45分钟）
+#include &lt;U8g2lib.h&gt;
+#include &lt;WiFi.h&gt;
+
+U8G2_SSD1306_128X64_NONAME_1_SW_I2C u8g2(U8G2_R0, /*clock=*/22, /*data=*/21, /*reset=*/U8X8_PIN_NONE);
+
+unsigned long lastRemindTime = 0;
+const unsigned long REMIND_INTERVAL = 45 * 60 * 1000; // 45分钟
+
+void setup() {
+  u8g2.begin();
+  pinMode(BUZZER_PIN, OUTPUT);
+}
+
+void loop() {
+  unsigned long now = millis();
+  
+  // 定时提醒
+  if (now - lastRemindTime >= REMIND_INTERVAL) {
+    lastRemindTime = now;
+    remindToDrink();  // 触发提醒：蜂鸣器 + OLED显示
+  }
+  
+  // 体育课后特殊提醒（13:00-15:00时间段额外检查）
+  if (isAfterPEEdTime()) {
+    sportsRemind();
+  }
+}</pre>
+                <p style="margin-top: 0.5rem;">📂 <a href="#">GitHub 完整代码链接</a></p>
+            </div>
+        </div>
+
+        <!-- ========== 4. Reflections ========== -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <h3>🤔 Reflections · 硬核 Bug 与解决方案</h3>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+                
+                <div style="border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 1.5rem;">🐛</span>
+                        <span style="font-weight: 700;">Bug 1：OLED 显示屏无显示</span>
+                    </div>
+                    <p style="margin-top: 0.5rem;">接线完成后 OLED 完全不亮，排查了电源、接线顺序都没问题。</p>
+                    <div style="background: #dcfce7; padding: 0.5rem 0.75rem; border-radius: 0.5rem; margin-top: 0.5rem;">
+                        <span style="font-weight: 600;">✅ 解决方案：</span>
+                        <span>使用 I2C 扫描程序发现地址是 0x3D，而代码默认使用 0x3C，修改地址后正常显示。</span>
+                    </div>
+                </div>
+
+                <div style="border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 1.5rem;">🐛</span>
+                        <span style="font-weight: 700;">Bug 2：蜂鸣器声音太小</span>
+                    </div>
+                    <p style="margin-top: 0.5rem;">整点报时和提醒时蜂鸣器声音很小，在嘈杂环境中几乎听不见。</p>
+                    <div style="background: #dcfce7; padding: 0.5rem 0.75rem; border-radius: 0.5rem; margin-top: 0.5rem;">
+                        <span style="font-weight: 600;">✅ 解决方案：</span>
+                        <span>将数字输出改为 PWM 模拟输出，提高占空比到 80%，音量明显提升。同时调整了音调频率使其更悦耳。</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 1.5rem;">🐛</span>
+                        <span style="font-weight: 700;">Bug 3：3D 打印外壳与电路板不匹配</span>
+                    </div>
+                    <p style="margin-top: 0.5rem;">外壳打印完成后，发现螺丝孔位偏移约 2mm，OLED 窗口位置也对不齐。</p>
+                    <div style="background: #dcfce7; padding: 0.5rem 0.75rem; border-radius: 0.5rem; margin-top: 0.5rem;">
+                        <span style="font-weight: 600;">✅ 解决方案：</span>
+                        <span>在 Fusion 360 中重新测量电路板尺寸，调整模型后重新打印。最终版本增加了定位柱，避免再次偏移。</span>
+                    </div>
+                </div>
+            </div>
+            <div class="git-log" style="margin-top: 1.5rem;">
+                📌 总结：通过三次迭代，解决了硬件、软件、结构三个层面的问题，最终产品稳定运行。
+            </div>
+        </div>
+
+        <!-- ========== 原有内容：成品展示、视频等 ========== -->
         <div class="card">
-            <div class="badge">5人团队 · 健康关怀 · 规律饮水提醒</div>
-            <h3>💧 项目背景</h3>
-            <p>针对体育课后容易忘记喝水、日常缺乏规律饮水习惯的同学，设计一款智能饮水提醒装置。通过定时提醒、运动后特殊提醒等方式，帮助大家养成健康饮水习惯。</p>
+            <h3>📷 最终成品展示</h3>
             
             <!-- 最终成品照片 -->
-            <h4>📷 最终成品</h4>
             <div style="display: flex; justify-content: center; margin: 1rem 0;">
                 <div style="max-width: 400px; width: 100%;">
                     <img src="期末项目/成品.jpg" alt="智能饮水提醒助手成品" style="width: 100%; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onerror="this.src='https://placehold.co/400x300?text=成品照片'">
                     <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">智能饮水提醒助手成品</p>
                 </div>
-            </div>
-
-            <!-- 团队介绍 - 5人（方案二：姓名+一句话角色） -->
-            <h4>👥 团队成员</h4>
-            <div class="team-grid" style="justify-content: center;">
-		<span class="team-member">🎨 黄新雄 (UI设计)</span>
-                <span class="team-member">📝 李露 (文档)</span>
-                <span class="team-member">👨‍💻 唐宇涵 (代码/硬件)</span>
-                <span class="team-member">🖨️ 李瑛琪 (3D打印)</span>
-                <span class="team-member">📊 刘知行 (测试)</span>
-                
             </div>
 
             <!-- 3D打印外壳展示 -->
@@ -806,8 +976,7 @@
             <div class="git-log">📂 项目开源：包含Arduino代码、接线图、3D模型文件。</div>
         </div>
     </div>
-</section>
- 
+</section> 
 </script>
 </body>
 </html>
