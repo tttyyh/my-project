@@ -736,7 +736,7 @@
 <!-- ================= 10. 期末创新项目 ================= -->
 <section id="final-project">
     <div class="container">
-        <h2 class="section-title">✨ 期末创新项目 —— 智能饮水提醒助手</h2>
+        <h2 class="section-title">✨ 期末创新项目 —— 智能植物卫士</h2>
         
         <!-- ========== 1. Project Profile ========== -->
         <div class="card" style="margin-bottom: 2rem;">
@@ -744,21 +744,22 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
                 <div>
                     <div style="font-weight: 700; color: #3b82f6;">项目名称</div>
-                    <p>智能饮水提醒助手</p>
+                    <p>智能植物卫士</p>
                 </div>
                 <div>
                     <div style="font-weight: 700; color: #3b82f6;">一句话产品定义</div>
-                    <p>针对体育课后忘记喝水、日常缺乏规律饮水习惯的同学，通过定时提醒和运动后特殊提醒，帮助养成健康饮水习惯的智能装置。</p>
+                    <p>基于 ESP32 开发板搭建智能土壤湿度监测设备，通过土壤湿度传感器采集数据，湿度偏低时蜂鸣器声光报警，TFT 彩屏实时展示数值与设备状态，搭配手机网页实现远程查看、参数设置与报警关闭。
+</p>
                 </div>
             </div>
             <div style="margin-top: 1rem;">
                 <div style="font-weight: 700; color: #3b82f6;">团队成员及分工</div>
                 <div class="team-grid" style="justify-content: flex-start; margin-top: 0.5rem;">
-                    <span class="team-member">🎨 黄新雄 (UI设计)</span>
-                    <span class="team-member">📝 李露 (文档)</span>
-                    <span class="team-member">👨‍💻 唐宇涵 (代码/硬件)</span>
-                    <span class="team-member">🖨️ 李瑛琪 (3D打印)</span>
-                    <span class="team-member">📊 刘知行 (测试)</span>
+                    <span class="team-member">🎨 黄新雄 (主设计师)</span>
+                    <span class="team-member">📝 李露 (3D打印)</span>
+                    <span class="team-member">👨‍💻 唐宇涵 (3D打印)</span>
+                    <span class="team-member">🖨️ 李瑛琪 (接线)</span>
+                    <span class="team-member">📊 刘知行 (代码)</span>
                 </div>
             </div>
         </div>
@@ -774,10 +775,10 @@
                         <span style="background: #3b82f6; color: white; padding: 0.2rem 0.8rem; border-radius: 2rem; font-size: 0.75rem;">周六上午</span>
                         <span style="font-weight: 700;">需求分析与初步设计</span>
                     </div>
-                    <p style="margin-top: 0.5rem;">讨论目标用户痛点，确定核心功能：定时提醒 + 体育课后特殊提醒。初步选定 ESP32 + OLED + 蜂鸣器方案。</p>
+                    <p style="margin-top: 0.5rem;">讨论目标用户痛点，确定核心功能：定时提醒 。初步选定 ESP32 + OLED  + 传感器 + 蜂鸣器方案。</p>
                     <div style="background: #fef3c7; padding: 0.75rem; border-radius: 0.75rem; margin-top: 0.5rem;">
                         <span style="font-weight: 600;">📸 失败/迭代记录：</span>
-                        <span style="font-size: 0.85rem;">最初的提醒方式只有蜂鸣器，测试后发现容易忽略，后续增加了 OLED 显示提醒。</span>
+                        <span style="font-size: 0.85rem;">一开始没有串口监视器没有传感器的输出，结果是USB CDC On Boot 选项设置成了 'Disabled'</span>
                     </div>
                     <img src="期末项目/草图1.jpg" alt="周六上午设计草图" style="max-width: 200px; margin-top: 0.5rem; border-radius: 0.5rem;" onerror="this.style.display='none'">
                 </div>
@@ -788,12 +789,12 @@
                         <span style="background: #f59e0b; color: white; padding: 0.2rem 0.8rem; border-radius: 2rem; font-size: 0.75rem;">周六下午</span>
                         <span style="font-weight: 700;">硬件搭建与代码调试</span>
                     </div>
-                    <p style="margin-top: 0.5rem;">完成 ESP32 与 OLED、蜂鸣器的接线。编写定时器代码，实现每 45 分钟触发提醒。</p>
+                    <p style="margin-top: 0.5rem;">完成 ESP32 与 OLED、蜂鸣器的接线。编写定时器代码，完成3D打印设计。</p>
                     <div style="background: #fef3c7; padding: 0.75rem; border-radius: 0.75rem; margin-top: 0.5rem;">
                         <span style="font-weight: 600;">📸 失败/迭代记录：</span>
-                        <span style="font-size: 0.85rem;">第一次接线时 OLED 不亮，排查发现是 I2C 地址错误（0x3C vs 0x3D），修改后正常。</span>
+                        <span style="font-size: 0.85rem;">3D打印时总是出料有问题，导致一开始打印总是停下，打印出失败品，重新整理了料盘，解决了问题</span>
                     </div>
-                    <img src="期末项目/调试照片.jpg" alt="周六下午调试过程" style="max-width: 200px; margin-top: 0.5rem; border-radius: 0.5rem;" onerror="this.style.display='none'">
+                    <img src="期末项目/草图2.jpg" alt="周六下午调试过程" style="max-width: 200px; margin-top: 0.5rem; border-radius: 0.5rem;" onerror="this.style.display='none'">
                 </div>
 
                 <!-- 周日早晨 -->
@@ -805,9 +806,9 @@
                     <p style="margin-top: 0.5rem;">完成体育课后特殊提醒逻辑，与 3D 打印外壳进行适配组装，整机测试。</p>
                     <div style="background: #fef3c7; padding: 0.75rem; border-radius: 0.75rem; margin-top: 0.5rem;">
                         <span style="font-weight: 600;">📸 失败/迭代记录：</span>
-                        <span style="font-size: 0.85rem;">外壳尺寸与电路板不匹配，需微调螺丝孔位；蜂鸣器音量偏小，最终通过增加 PWM 占空比优化。</span>
+                        <span style="font-size: 0.85rem;">未知</span>
                     </div>
-                    <img src="期末项目/外壳适配.jpg" alt="周日外壳适配" style="max-width: 200px; margin-top: 0.5rem; border-radius: 0.5rem;" onerror="this.style.display='none'">
+                    <img src="期末项目/外壳.jpg" alt="周日外壳适配" style="max-width: 200px; margin-top: 0.5rem; border-radius: 0.5rem;" onerror="this.style.display='none'">
                 </div>
             </div>
         </div>
@@ -820,11 +821,11 @@
                     <div style="font-weight: 700; color: #3b82f6;">硬件清单</div>
                     <ul style="margin-left: 1rem; margin-top: 0.5rem;">
                         <li>ESP32 开发板 ×1</li>
-                        <li>0.96英寸 OLED 显示屏 ×1</li>
-                        <li>无源蜂鸣器 ×1</li>
+                        <li>OLED 显示屏 ×1</li>
+                        <li>有源蜂鸣器 ×1</li>
                         <li>杜邦线若干</li>
                         <li>3D打印外壳 ×1</li>
-                        <li>USB 电源线 ×1</li>
+                        <li>湿度传感器 ×1</li>
                     </ul>
                 </div>
                 <div>
@@ -833,43 +834,59 @@
                         <li>Arduino IDE</li>
                         <li>ESP32 开发库</li>
                         <li>U8g2 (OLED 驱动库)</li>
-                        <li>Fusion 360 (外壳设计)</li>
-                        <li>立创EDA (PCB设计)</li>
+                        <li>SolidWorks (外壳设计)</li>
                     </ul>
                 </div>
             </div>
             <div style="margin-top: 1rem;">
                 <div style="font-weight: 700; color: #3b82f6;">核心代码片段</div>
                 <pre style="background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 0.75rem; overflow-x: auto; font-size: 0.75rem; margin-top: 0.5rem;">
-// 定时提醒核心逻辑（每45分钟）
-#include &lt;U8g2lib.h&gt;
-#include &lt;WiFi.h&gt;
+#include <Arduino.h>
+#include <WiFi.h>
+#include <WebServer.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_ST7735.h>
+#include <SPI.h>
+#include "time.h"
 
-U8G2_SSD1306_128X64_NONAME_1_SW_I2C u8g2(U8G2_R0, /*clock=*/22, /*data=*/21, /*reset=*/U8X8_PIN_NONE);
+// ================= 引脚定义 (专为 S2 Mini 外排针脚纯手工定制!) =================
+#define TFT_CS     16   // 左侧外排
+#define TFT_DC     18   // 左侧外排
+#define TFT_RST    33   // 左侧外排
+#define TFT_SCLK   35   // 左侧外排
+#define TFT_MOSI   37   // 左侧外排
 
-unsigned long lastRemindTime = 0;
-const unsigned long REMIND_INTERVAL = 45 * 60 * 1000; // 45分钟
+#define SOIL_PIN   4    // 右侧外排 (ADC)
+#define BEEP_PIN   6    // 右侧外排
+#define BEEP_ON    HIGH
+#define BEEP_OFF   LOW
 
-void setup() {
-  u8g2.begin();
-  pinMode(BUZZER_PIN, OUTPUT);
-}
+// ================= WiFi 配置 =================
+const char* ssid = "Titanic"; 
+const char* password = "20060426"; 
 
-void loop() {
-  unsigned long now = millis();
-  
-  // 定时提醒
-  if (now - lastRemindTime >= REMIND_INTERVAL) {
-    lastRemindTime = now;
-    remindToDrink();  // 触发提醒：蜂鸣器 + OLED显示
-  }
-  
-  // 体育课后特殊提醒（13:00-15:00时间段额外检查）
-  if (isAfterPEEdTime()) {
-    sportsRemind();
-  }
-}</pre>
-                <p style="margin-top: 0.5rem;">📂 <a href="#">GitHub 完整代码链接</a></p>
+const char* ntpServer = "ntp.aliyun.com";
+const long  gmtOffset_sec = 8 * 3600; 
+const int   daylightOffset_sec = 0;
+
+// ================= 对象实例化 (使用软件 SPI 随意定脚) =================
+Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS, TFT_DC, TFT_MOSI, TFT_SCLK, TFT_RST);
+WebServer server(80);
+
+// ================= ?? 传感器校准参数 =================
+int dryValue = 4095;  // 探头拿在空气中、擦干时的 AD 数值
+int wetValue = 1500;  // 探头完全泡在水里的 AD 数值
+
+// ================= 全局变量 =================
+int currentMoisture = 0;   
+int rawAnalogValue = 0;    
+int alarmThreshold = 30;   
+bool isMuted = false;      
+
+char currentTimeStr[20] = "Syncing...";
+unsigned long lastScreenUpdate = 0; 
+</pre>
+                <p style="margin-top: 0.5rem;">📂 <a href="#"> 完整代码在gitee仓库</a></p>
             </div>
         </div>
 
