@@ -826,31 +826,45 @@
             </div>
         </div>
 
-        <!-- ========== 3. Tech Stack & Code ========== -->
-        <div class="card" style="margin-bottom: 2rem;">
-            <h3>🔧 Tech Stack & Code</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
-                <div>
-                    <div style="font-weight: 700; color: #3b82f6;">硬件清单</div>
-                    <ul style="margin-left: 1rem; margin-top: 0.5rem;">
-                        <li>ESP32 开发板 ×1</li>
-                        <li>OLED 显示屏 ×1</li>
-                        <li>有源蜂鸣器 ×1</li>
-                        <li>杜邦线若干</li>
-                        <li>3D打印外壳 ×1</li>
-                        <li>湿度传感器 ×1</li>
-                    </ul>
-                </div>
-                <div>
-                    <div style="font-weight: 700; color: #3b82f6;">软件与工具</div>
-                    <ul style="margin-left: 1rem; margin-top: 0.5rem;">
-                        <li>Arduino IDE</li>
-                        <li>ESP32 开发库</li>
-                        <li>U8g2 (OLED 驱动库)</li>
-                        <li>SolidWorks (外壳设计)</li>
-                    </ul>
-                </div>
+<!-- ========== 3. Tech Stack & Code ========== -->
+<div class="card" style="margin-bottom: 2rem;">
+    <h3>🔧 Tech Stack & Code</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+        <div>
+            <div style="font-weight: 700; color: #3b82f6;">硬件清单</div>
+            <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+                <li>3D打印外壳 </li>
+                <li>有源蜂鸣器 *1（自费）</li>
+                <li>ESP32C3芯片*1（已归还）</li>
+                <li>OLED TFT液晶屏幕*1（已归还）</li>
+                <li>HX711称重 应力*1（已归还）</li>
+                <li>杜邦线*10（已归还）</li>
+                <li>面包板*1（已归还）</li>
+                <li>土壤湿度传感器*1（已归还）</li>
+            </ul>
+        </div>
+        <div>
+            <div style="font-weight: 700; color: #3b82f6;">软件与工具</div>
+            <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+                <li>Arduino IDE</li>
+                <li>ESP32 开发库</li>
+                <li>U8g2 (OLED 驱动库)</li>
+                <li>SolidWorks (外壳设计)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- 材料归还照片 -->
+    <div style="margin-top: 1.5rem;">
+        <div style="font-weight: 700; color: #3b82f6; margin-bottom: 0.5rem;">📸 材料归还记录</div>
+        <div style="display: flex; justify-content: center;">
+            <div style="max-width: 400px; width: 100%;">
+                <img src="期末项目/材料归还.jpg" alt="材料归还照片" style="width: 100%; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onerror="this.parentElement.innerHTML='<div style=text-align:center;color:#94a3b8;padding:1rem;background:#f1f5f9;border-radius:1rem;>📷 材料归还照片<br>请放入 期末项目/材料归还.jpg</div>'">
+                <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">实验器材归还记录</p>
             </div>
+        </div>
+    </div>
+</div>
             <div style="margin-top: 1rem;">
                 <div style="font-weight: 700; color: #3b82f6;">核心代码片段</div>
                 <pre style="background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 0.75rem; overflow-x: auto; font-size: 0.75rem; margin-top: 0.5rem;">
@@ -899,7 +913,7 @@ bool isMuted = false;
 char currentTimeStr[20] = "Syncing...";
 unsigned long lastScreenUpdate = 0; 
 </pre>
-                <p style="margin-top: 0.5rem;">📂 <a href="#"> 完整代码在gitee仓库</a></p>
+                <p style="margin-top: 0.5rem;">📂 <a href="https://gitee.com/tyhhhhhhhhh/my-project/tree/master/期末项目/最终代码.cpp" target="_blank"> 完整代码在gitee仓库</a></p>
             </div>
         </div>
 
