@@ -745,38 +745,36 @@
         </div>
     </div>
 </section>
-
-<!-- ================= 10. 期末创新项目 ================= -->
 <section id="final-project">
     <div class="container">
-        <h2 class="section-title">✨ 期末创新项目 —— 智能植物卫士</h2>
-        
-        <!-- ========== 1. Project Profile ========== -->
-        <div class="card" style="margin-bottom: 2rem;">
-            <h3>📋 Project Profile</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
-                <div>
-                    <div style="font-weight: 700; color: #3b82f6;">项目名称</div>
-                    <p>智能植物卫士</p>
-                </div>
-                <div>
-                    <div style="font-weight: 700; color: #3b82f6;">一句话产品定义</div>
-                    <p>基于 ESP32 开发板搭建智能土壤湿度监测设备，通过土壤湿度传感器采集数据，湿度偏低时蜂鸣器声光报警，TFT 彩屏实时展示数值与设备状态，搭配手机网页实现远程查看、参数设置与报警关闭。
-</p>
-                </div>
-            </div>
-            <div style="margin-top: 1rem;">
-                <div style="font-weight: 700; color: #3b82f6;">团队成员及分工</div>
-                <div class="team-grid" style="justify-content: flex-start; margin-top: 0.5rem;">
-                    <span class="team-member">🎨 黄新雄 (主设计师)</span>
-                    <span class="team-member">📝 李露 (3D打印)</span>
-                    <span class="team-member">👨‍💻 唐宇涵 (3D打印)</span>
-                    <span class="team-member">🖨️ 李瑛琪 (接线)</span>
-                    <span class="team-member">📊 刘知行 (代码)</span>
-                </div>
-            </div>
+<!-- ========== 1. Project Profile ========== -->
+<div class="card" style="margin-bottom: 2rem;">
+    <h3>📋 Project Profile</h3>
+    
+    <!-- 项目名称和产品定义并排 -->
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem; margin-top: 1rem;">
+        <div style="background: #f0f9ff; padding: 1rem; border-radius: 1rem;">
+            <div style="font-weight: 700; color: #3b82f6; margin-bottom: 0.5rem;">🏷️ 项目名称</div>
+            <p style="font-size: 1.1rem; font-weight: 600; margin: 0;">智能植物卫士</p>
         </div>
-
+        <div style="background: #f0fdf4; padding: 1rem; border-radius: 1rem;">
+            <div style="font-weight: 700; color: #10b981; margin-bottom: 0.5rem;">💡 一句话产品定义</div>
+            <p style="margin: 0; line-height: 1.5;">基于 ESP32 开发板搭建智能土壤湿度监测设备，通过土壤湿度传感器采集数据，湿度偏低时蜂鸣器声光报警，TFT 彩屏实时展示数值与设备状态，搭配手机网页实现远程查看、参数设置与报警关闭。</p>
+        </div>
+    </div>
+    
+    <!-- 团队成员 -->
+    <div style="margin-top: 1.5rem;">
+        <div style="font-weight: 700; color: #3b82f6; margin-bottom: 0.5rem;">👥 团队成员及分工</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+            <span style="background: #e0f2fe; padding: 0.4rem 1rem; border-radius: 2rem; font-size: 0.85rem;">🎨 黄新雄 (主设计师)</span>
+            <span style="background: #e0f2fe; padding: 0.4rem 1rem; border-radius: 2rem; font-size: 0.85rem;">📝 李露 (3D打印)</span>
+            <span style="background: #e0f2fe; padding: 0.4rem 1rem; border-radius: 2rem; font-size: 0.85rem;">👨‍💻 唐宇涵 (3D打印)</span>
+            <span style="background: #e0f2fe; padding: 0.4rem 1rem; border-radius: 2rem; font-size: 0.85rem;">🖨️ 李瑛琪 (接线)</span>
+            <span style="background: #e0f2fe; padding: 0.4rem 1rem; border-radius: 2rem; font-size: 0.85rem;">📊 刘知行 (代码)</span>
+        </div>
+    </div>
+</div>
         <!-- ========== 2. Design Log（时间轴） ========== -->
         <div class="card" style="margin-bottom: 2rem;">
             <h3>📅 Design Log · 设计迭代记录</h3>
@@ -855,13 +853,22 @@
     </div>
     
     <!-- 材料归还照片 -->
-    <div style="margin-top: 1.5rem;">
-        <div style="font-weight: 700; color: #3b82f6; margin-bottom: 0.5rem;">📸 材料归还记录</div>
-        <div style="display: flex; justify-content: center;">
-            <div style="max-width: 400px; width: 100%;">
-                <img src="期末项目/材料归还.jpg" alt="材料归还照片" style="width: 100%; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onerror="this.parentElement.innerHTML='<div style=text-align:center;color:#94a3b8;padding:1rem;background:#f1f5f9;border-radius:1rem;>📷 材料归还照片<br>请放入 期末项目/材料归还.jpg</div>'">
-                <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">实验器材归还记录</p>
+<div style="margin-top: 1.5rem;">
+    <div style="font-weight: 700; color: #3b82f6; margin-bottom: 0.5rem;">📸 材料归还记录</div>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <!-- 第一张照片：材料归还.jpg -->
+        <div style="flex: 1; min-width: 250px; max-width: 350px;">
+            <div style="background: #f1f5f9; border-radius: 1rem; overflow: hidden; padding: 0.5rem;">
+                <img src="期末项目/材料归还.jpg" alt="材料归还照片" style="width: 100%; height: auto; display: block; border-radius: 0.5rem;">
             </div>
+            <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">实验器材归还记录（一）</p>
+        </div>
+        <!-- 第二张照片：归还.png -->
+        <div style="flex: 1; min-width: 250px; max-width: 350px;">
+            <div style="background: #f1f5f9; border-radius: 1rem; overflow: hidden; padding: 0.5rem;">
+                <img src="期末项目/归还.png" alt="归还记录" style="width: 100%; height: auto; display: block; border-radius: 0.5rem;">
+            </div>
+            <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">实验器材归还记录（二）</p>
         </div>
     </div>
 </div>
