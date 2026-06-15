@@ -1,0 +1,14 @@
+#define LEDPIN 40
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(LEDPIN,OUTPUT);//设置为输出
+}
+
+void loop() {//循环
+  // put your main code here, to run repeatedly:
+  digitalWrite(LEDPIN,HIGH);//高电平
+  delay(100);//毫秒
+ digitalWrite(LEDPIN,LOW);//低电平
+  delay(100);
+
+}

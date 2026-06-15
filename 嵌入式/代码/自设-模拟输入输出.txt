@@ -1,0 +1,45 @@
+#include <Arduino.h>
+
+// 定义引脚
+const int LDR_PIN = 4;     // 光敏电阻连接的模拟输入引脚 (ADC引脚)
+const int LED_PIN = 5;     // LED(灯)连接的模拟输出引脚 (PWM引脚)
+
+// PWM 参数配置
+const int freq = 5000;         // PWM 频率 (5kHz)
+const int ledChannel = 0;      // PWM 通道 (0-15)
+const int resolution = 12;     // PWM 分辨率，12位 (0 - 4095)
+
+void setup() {
+  Serial.begin(115200);
+  
+  // 初始化 PWM 设置: 配置通道、频率及分辨率
+  ledcSetup(ledChannel, freq, resolution);
+  analogReadResolution(resolution);
+  // 将 PWM 通道绑定到 LED 引脚
+  ledcAttachPin(LED_PIN, ledChannel);
+}
+
+void loop() {
+  // 1. 【模拟输入】读取光敏电阻的模拟电压值
+  // ESP32 ADC 默认分辨率为 12 bit，读取范围是 0 - 4095
+  int ldrValue = analogRead(LDR_PIN);
+  
+  // 2. 将输入值转换为期望的输出占空比
+  // 因为两者的分辨率我们都设为了 12 位，所以可以直接赋值，
+  // 也可以根据光线情况自己做反相或调整，如: int dutyCycle = map(ldrValue, 0, 4095, 4095, 0); (光越亮，灯越暗)
+  int dutyCycle = 4095-ldrValue; 
+  
+  // 3. 【模拟输出】驱动 LED 的亮度
+  ledcWrite(ledChannel, dutyCycle);
+  
+  // 4. 打印调试信息
+  Serial.print("Analog Input (LDR): ");
+  Serial.print(ldrValue);
+  Serial.print("  ==>  Analog Output (PWM): ");
+  Serial.println(dutyCycle);
+  
+  delay(50); // 稍微延时，避免刷新过快
+}
+
+本项目结合模拟输入与模拟输出，利用光敏电阻控制发光二极管，光照越弱时，二极管越亮
+
